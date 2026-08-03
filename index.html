@@ -19,6 +19,15 @@
     .shots { display: flex; gap: 16px; overflow-x: auto; padding: 4px 4px 12px; margin: 0 -4px; }
     .shots a { flex: 0 0 auto; }
     .shots img { display: block; height: 380px; width: auto; border-radius: 10px; border: 1px solid #e5e7eb; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .roadmap-note { font-size: 13px; color: #6b7280; margin: 4px 0 12px; }
+    .roadmap { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px; }
+    .roadmap li { display: flex; align-items: baseline; gap: 10px; padding: 5px 0; font-size: 14px; }
+    .roadmap .icon { width: 18px; flex: 0 0 auto; text-align: center; }
+    .roadmap.done .icon { color: #0d9488; }
+    .roadmap.pending .icon { color: #b45309; }
+    .roadmap.pending li { color: #57534e; }
+    .roadmap-group { margin-top: 10px; }
+    .roadmap-group + .roadmap-group { margin-top: 14px; }
   </style>
 </head>
 <body>
@@ -26,6 +35,24 @@
     <span class="badge">Local-First</span>
     <h1>Asystent Praktyki Medycznej (APM)</h1>
     <p>Asystent pracy medyka — przydatny niezależnie od formy zatrudnienia: grafik dyżurów, urlopy, karta rozliczenia godzin, baza leków i procedur klinicznych oraz kalkulatory medyczne. Dla prowadzących własną działalność gospodarczą dodatkowo: wystawianie faktur za godziny i usługi oraz eksport do KSeF 2.0.</p>
+
+    <h2>Najbliższe etapy</h2>
+    <p class="roadmap-note">Aplikacja jest wciąż w budowie — poniżej uczciwy status, co już działa, a co jeszcze przed nami.</p>
+    <div class="roadmap-group">
+      <ul class="roadmap done">
+        <li><span class="icon">✓</span> Architektura aplikacji</li>
+        <li><span class="icon">✓</span> Moduły podstawowe</li>
+        <li><span class="icon">✓</span> Integracja KSeF (tryb testowy)</li>
+      </ul>
+    </div>
+    <div class="roadmap-group">
+      <ul class="roadmap pending">
+        <li><span class="icon">⏳</span> Integracja Google Drive</li>
+        <li><span class="icon">⏳</span> Dopracowanie interfejsu użytkownika</li>
+        <li><span class="icon">⏳</span> Zamknięte testy beta</li>
+        <li><span class="icon">⏳</span> Publikacja w Google Play</li>
+      </ul>
+    </div>
 
     <h2>Prywatność</h2>
     <p>Aplikacja działa w modelu <strong>Local-First</strong> — Twoje dane (grafik, faktury, dane firmy) zostają wyłącznie na Twoim urządzeniu. Żadna telemetria, żadne serwery reklamowe czy analityczne. Szczegóły w <a href="privacy.html">Polityce Prywatności</a>.</p>
