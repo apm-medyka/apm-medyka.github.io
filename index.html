@@ -16,6 +16,9 @@
     .links a { font-weight: 600; text-decoration: none; }
     .links a:hover { text-decoration: underline; }
     footer { margin-top: 24px; font-size: 12px; color: #6b7280; }
+    .shots { display: flex; gap: 16px; overflow-x: auto; padding: 4px 4px 12px; margin: 0 -4px; }
+    .shots a { flex: 0 0 auto; }
+    .shots img { display: block; height: 380px; width: auto; border-radius: 10px; border: 1px solid #e5e7eb; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
   </style>
 </head>
 <body>
@@ -26,6 +29,13 @@
 
     <h2>Prywatność</h2>
     <p>Aplikacja działa w modelu <strong>Local-First</strong> — Twoje dane (grafik, faktury, dane firmy) zostają wyłącznie na Twoim urządzeniu. Żadna telemetria, żadne serwery reklamowe czy analityczne. Szczegóły w <a href="privacy.html">Polityce Prywatności</a>.</p>
+
+    <h2>Zrzuty ekranu</h2>
+    <div class="shots">
+      <a href="screenshots/start.png" target="_blank" rel="noopener"><img src="screenshots/start.png" alt="Ekran Start - dzisiejszy dyżur, podsumowanie miesiąca"></a>
+      <a href="screenshots/grafik.png" target="_blank" rel="noopener"><img src="screenshots/grafik.png" alt="Ekran Grafik - kalendarz dyżurów"></a>
+      <a href="screenshots/wiecej.png" target="_blank" rel="noopener"><img src="screenshots/wiecej.png" alt="Ekran Więcej - kategorie modułów"></a>
+    </div>
 
     <h2>Integracje</h2>
     <ul>
