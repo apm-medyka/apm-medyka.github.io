@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polityka Prywatności - Asystent Medyka Kontraktowego</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #222; max-width: 800px; margin: 0 auto; padding: 24px; background: #fafafa; }
+    .card { background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
+    h1 { color: #0d9488; font-size: 24px; margin-top: 0; }
+    h2 { color: #111827; font-size: 18px; margin-top: 24px; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; }
+    ul { padding-left: 20px; }
+    .badge { display: inline-block; background: #ccfbf1; color: #0f766e; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 12px; }
+    a { color: #0d9488; }
+    .back { display: inline-block; margin-top: 24px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">Local-First Privacy</span>
+    <h1>Polityka Prywatności i Bezpieczeństwa</h1>
+    <p><strong>Aplikacja:</strong> Asystent Medyka Kontraktowego (APM)<br>
+    <strong>Wersja:</strong> 1.0.0<br>
+    <strong>Ostatnia aktualizacja:</strong> 3 sierpnia 2026 r.</p>
+
+    <h2>1. Wstęp i kontrola danych</h2>
+    <p>Aplikacja <strong>Asystent Medyka Kontraktowego</strong> została zaprojektowana w oparciu o zasadę <strong>Local-First</strong> — dane należą do Ciebie i zostają na Twoim urządzeniu. Szanujemy prywatność medyków oraz ochronę danych związanych z prowadzeniem jednoosobowej działalności gospodarczej (JDG).</p>
+
+    <h2>2. Przechowywanie danych (Local-First)</h2>
+    <ul>
+      <li><strong>Lokalny zapis danych:</strong> Wszystkie wprowadzone dane (grafik dyżurów, profil medyka, numery NIP, dane faktur, zestawienia kosztów, bazy leków i notatki kliniczne) są przechowywane <strong>wyłącznie lokalnie</strong>, w pamięci Twojego urządzenia.</li>
+      <li><strong>Brak zewnętrznych serwerów śledzących:</strong> Aplikacja nie przesyła Twoich danych osobowych, finansowych ani medycznych do żadnych zewnętrznych serwerów analitycznych, reklamowych ani podmiotów trzecich. Nie ma żadnej telemetrii ani śledzenia użycia.</li>
+    </ul>
+
+    <h2>3. Integracje sieciowe (opcjonalne)</h2>
+    <p>Aplikacja oferuje kilka opcjonalnych funkcji wymagających połączenia z internetem — każda z nich jest inicjowana wyłącznie przez Ciebie, ręcznym działaniem w aplikacji:</p>
+    <ul>
+      <li><strong>KSeF 2.0 (Krajowy System e-Faktur):</strong> szyfrowana wymiana danych bezpośrednio pomiędzy Twoim urządzeniem a oficjalnymi bramkami Ministerstwa Finansów (API KSeF), wyłącznie przy ręcznej wysyłce faktury.</li>
+      <li><strong>Stawki ZUS i rejestr firm (ZUS.pl, Dane.gov.pl, wl-api.mf.gov.pl):</strong> pobierają wyłącznie publicznie dostępne, oficjalne dane (tabele składek, dane firmy po NIP) — nic z Twoich danych nie jest przy tym wysyłane poza samym zapytaniem.</li>
+      <li><strong>Kopia zapasowa w Google Drive (opcjonalna, wymaga logowania Google):</strong> aplikacja prosi wyłącznie o zakres dostępu <code>drive.appdata</code> — ukryty folder danych aplikacji, niewidoczny w zwykłym widoku Twojego Dysku Google i niedostępny dla żadnej innej aplikacji ani dla nas. Kopia zapasowa (ten sam plik co lokalny eksport) trafia wyłącznie na Twój prywatny Dysk Google; nie mamy do niej dostępu.</li>
+    </ul>
+
+    <h2>4. RODO / GDPR</h2>
+    <p>Aplikacja <strong>nie gromadzi danych pacjentów</strong> — dokumenty (faktury, karty rozliczeniowe) generowane są na podmioty lecznicze (szpitale, przychodnie) lub kontrahentów B2B, nie na osoby fizyczne będące pacjentami. Zachowujesz pełne prawo do wglądu, eksportu (format JSON) oraz trwałego, natychmiastowego usunięcia wszystkich danych z poziomu Ustawień aplikacji.</p>
+
+    <h2>5. Bezpieczeństwo</h2>
+    <p>Aplikacja wspiera lokalną blokadę dostępu kodem PIN (haszowanym algorytmem PBKDF2 z losową solą, nigdy nie przechowywanym jawnie), zabezpieczającą przed niepowołanym otwarciem aplikacji na dyżurze.</p>
+
+    <h2>6. Kontakt</h2>
+    <p>W przypadku pytań dotyczących polityki prywatności lub funkcjonowania aplikacji:<br>
+    <strong>E-mail:</strong> <a href="mailto:s.gallewicz@gmail.com">s.gallewicz@gmail.com</a></p>
+
+    <a class="back" href="index.html">&larr; Powrót do strony głównej</a>
+  </div>
+</body>
+</html>
