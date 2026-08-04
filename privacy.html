@@ -28,7 +28,7 @@
 
     <h2>2. Przechowywanie danych (Local-First)</h2>
     <ul>
-      <li><strong>Lokalny zapis danych:</strong> Wszystkie wprowadzone dane (grafik dyżurów, profil medyka, numery NIP, dane faktur, zestawienia kosztów, bazy leków i notatki kliniczne) są przechowywane <strong>wyłącznie lokalnie</strong>, w pamięci Twojego urządzenia.</li>
+      <li><strong>Lokalny zapis danych:</strong> Wszystkie wprowadzone dane (grafik dyżurów, profil użytkownika, numery NIP, dane faktur, zestawienia kosztów, bazy leków i notatki kliniczne) są przechowywane <strong>wyłącznie lokalnie</strong>, w pamięci Twojego urządzenia.</li>
       <li><strong>Brak zewnętrznych serwerów śledzących:</strong> Aplikacja nie przesyła Twoich danych osobowych, finansowych ani medycznych do żadnych zewnętrznych serwerów analitycznych, reklamowych ani podmiotów trzecich. Nie ma żadnej telemetrii ani śledzenia użycia.</li>
     </ul>
 
@@ -44,7 +44,7 @@
     <p>Aplikacja <strong>nie gromadzi danych pacjentów</strong> — dokumenty (faktury, karty rozliczeniowe) generowane są na podmioty lecznicze (szpitale, przychodnie) lub kontrahentów B2B, nie na osoby fizyczne będące pacjentami. Zachowujesz pełne prawo do wglądu, eksportu (format JSON) oraz trwałego, natychmiastowego usunięcia wszystkich danych z poziomu Ustawień aplikacji.</p>
 
     <h2>5. Bezpieczeństwo</h2>
-    <p>Aplikacja wspiera lokalną blokadę dostępu kodem PIN (haszowanym algorytmem PBKDF2 z losową solą, nigdy nie przechowywanym jawnie), zabezpieczającą przed niepowołanym otwarciem aplikacji na dyżurze.</p>
+    <p>Aplikacja wspiera lokalną blokadę dostępu kodem PIN (haszowanym algorytmem PBKDF2 z losową solą, nigdy nie przechowywanym jawnie), zabezpieczającą przed niepowołanym otwarciem aplikacji na dyżurze. Nawet w kopiach zapasowych PIN nie jest zapisywany w postaci jawnej — wyłącznie jako nieodwracalny skrót (PBKDF2, losowa sól).</p>
 
     <h2>6. Kontakt</h2>
     <p>W przypadku pytań dotyczących polityki prywatności lub funkcjonowania aplikacji:<br>
