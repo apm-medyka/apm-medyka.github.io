@@ -25,16 +25,16 @@
     <span class="badge">Local-First Privacy</span>
     <h1>Polityka Prywatności i Bezpieczeństwa</h1>
     <p><strong>Aplikacja:</strong> Asystent Praktyki Medycznej (APM)<br>
-    <strong>Wersja aplikacji:</strong> 1.1.0 (numer kompilacji widoczny w Ustawieniach &gt; O aplikacji)<br>
-    <strong>Ostatnia aktualizacja:</strong> 6 sierpnia 2026 r.</p>
+    <strong>Wersja aplikacji:</strong> 1.2.0 (numer kompilacji widoczny w Ustawieniach &gt; O aplikacji)<br>
+    <strong>Ostatnia aktualizacja:</strong> 19 sierpnia 2026 r.</p>
 
     <h2>1. Wstęp i kontrola danych</h2>
-    <p>Aplikacja <strong>Asystent Praktyki Medycznej</strong> została zaprojektowana w oparciu o zasadę <strong>Local-First</strong> — dane należą do Ciebie i zostają na Twoim urządzeniu. Szanujemy prywatność medyków oraz ochronę danych związanych z prowadzeniem jednoosobowej działalności gospodarczej (JDG).</p>
+    <p>Aplikacja <strong>Asystent Praktyki Medycznej</strong> została zaprojektowana w oparciu o zasadę <strong>Local-First</strong> — dane należą do Ciebie i domyślnie zostają na Twoim urządzeniu, opuszczając je wyłącznie w ramach funkcji sieciowych świadomie uruchamianych przez Ciebie (opisanych w punkcie 3 poniżej). Szanujemy prywatność medyków oraz ochronę danych związanych z prowadzeniem jednoosobowej działalności gospodarczej (JDG).</p>
 
     <h2>2. Przechowywanie danych (Local-First)</h2>
     <ul>
-      <li><strong>Lokalny zapis danych:</strong> Wszystkie wprowadzone dane (grafik dyżurów, profil użytkownika, numery NIP, dane faktur, zestawienia kosztów, bazy leków i notatki kliniczne) są przechowywane <strong>wyłącznie lokalnie</strong>, w pamięci Twojego urządzenia.</li>
-      <li><strong>Brak zewnętrznych serwerów śledzących:</strong> Aplikacja nie przesyła Twoich danych osobowych, finansowych ani medycznych do żadnych zewnętrznych serwerów analitycznych, reklamowych ani podmiotów trzecich. Nie ma żadnej telemetrii ani śledzenia użycia.</li>
+      <li><strong>Lokalny zapis danych:</strong> Wszystkie wprowadzone dane (grafik dyżurów, profil użytkownika, numery NIP, dane faktur, zestawienia kosztów, bazy leków i notatki kliniczne) są <strong>domyślnie przechowywane lokalnie</strong>, w pamięci Twojego urządzenia, i przesyłane poza nie wyłącznie w ramach funkcji sieciowych świadomie uruchamianych przez Ciebie (punkt 3 poniżej).</li>
+      <li><strong>Brak zewnętrznych serwerów śledzących:</strong> Aplikacja nie przesyła Twoich danych osobowych, finansowych ani medycznych do żadnych zewnętrznych serwerów analitycznych, reklamowych ani podmiotów trzecich, z wyjątkiem funkcji sieciowych opisanych w punkcie 3 poniżej. Nie ma żadnej telemetrii ani śledzenia użycia.</li>
     </ul>
 
     <h2>3. Integracje sieciowe (opcjonalne)</h2>
@@ -45,10 +45,11 @@
       <li><strong>Stawki ZUS (ZUS.pl, Dane.gov.pl):</strong> pobierają wyłącznie publicznie dostępne tabele stawek składkowych — nic z Twoich danych nie jest przy tym wysyłane poza samym zapytaniem.</li>
       <li><strong>Kopia zapasowa w Google Drive (opcjonalna, wymaga logowania Google):</strong> aplikacja prosi wyłącznie o zakres dostępu <code>drive.appdata</code> — ukryty folder danych aplikacji, niewidoczny w zwykłym widoku Twojego Dysku Google i niedostępny dla żadnej innej aplikacji ani dla nas. Kopia zapasowa (ten sam plik co lokalny eksport) trafia wyłącznie na Twój prywatny Dysk Google; nie mamy do niej dostępu.</li>
       <li><strong>Formularz "Opinia i sugestie" (opcjonalny):</strong> jeśli sam/sama zdecydujesz się wysłać opinię, treść wiadomości oraz podany przez Ciebie (opcjonalnie) adres e-mail do kontaktu zwrotnego trafiają do formularza Google obsługiwanego przez autora aplikacji. To jedyna funkcja, w ramach której autor aplikacji otrzymuje jakiekolwiek dane od Ciebie — i tylko wtedy, gdy sam/sama je wyślesz.</li>
+      <li><strong>Subskrypcja Premium (Google Play Billing):</strong> zakup, odnawianie i anulowanie subskrypcji obsługuje wyłącznie Google Play (Google LLC / Google Commerce Ltd dla użytkowników w UE) — aplikacja nigdy nie widzi ani nie przechowuje danych Twojej karty płatniczej ani innych danych rozliczeniowych. Status subskrypcji jest odczytywany bezpośrednio z Google Play przy uruchomieniu/wznowieniu aplikacji i zapisywany wyłącznie lokalnie na urządzeniu.</li>
     </ul>
 
     <h2>4. RODO / GDPR</h2>
-    <p>Aplikacja <strong>nie gromadzi danych pacjentów</strong> — dokumenty (faktury, karty rozliczeniowe) generowane są na podmioty lecznicze (szpitale, przychodnie) lub kontrahentów B2B, nie na osoby fizyczne będące pacjentami. Zachowujesz pełne prawo do wglądu, eksportu (format JSON) oraz trwałego, natychmiastowego usunięcia wszystkich danych z poziomu Ustawień aplikacji.</p>
+    <p>Aplikacja <strong>nie prowadzi kartoteki pacjentów</strong> ani nie zapisuje danych wprowadzanych do kalkulatorów medycznych (np. wiek, waga, wyniki badań) jako danych przypisanych do konkretnego pacjenta — służą one wyłącznie do jednorazowego, lokalnego obliczenia widocznego na ekranie kalkulatora i nigdzie nie są zapisywane. Dokumenty (faktury, karty rozliczeniowe) generowane są na podmioty lecznicze (szpitale, przychodnie) lub kontrahentów B2B, nie na osoby fizyczne będące pacjentami. Zachowujesz pełne prawo do wglądu, eksportu (format JSON) oraz trwałego, natychmiastowego usunięcia wszystkich danych z poziomu Ustawień aplikacji.</p>
 
     <h2>5. Bezpieczeństwo</h2>
     <p>Aplikacja wspiera lokalną blokadę dostępu kodem PIN (haszowanym algorytmem PBKDF2 z losową solą, nigdy nie przechowywanym jawnie) oraz odblokowanie biometryczne (odcisk palca / rozpoznawanie twarzy, wyłącznie przez natywny mechanizm systemu operacyjnego), zabezpieczające przed niepowołanym otwarciem aplikacji na dyżurze. Nawet w kopiach zapasowych PIN nie jest zapisywany w postaci jawnej — wyłącznie jako nieodwracalny skrót (PBKDF2, losowa sól).</p>
