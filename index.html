@@ -41,6 +41,12 @@
     .lang-switch a { color: #9ca3af; text-decoration: none; font-weight: 700; }
     .lang-switch a.active { color: #0d9488; }
     .lang-switch span { color: #e5e7eb; margin: 0 6px; }
+    .demo-link { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #f0fdfa; border: 2px solid #0d9488; border-radius: 12px; padding: 16px 22px; margin: 20px 0 8px; text-decoration: none; flex-wrap: wrap; }
+    .demo-link:hover { background: #ccfbf1; }
+    .demo-link .txt { color: #0f766e; }
+    .demo-link .txt strong { display: block; font-size: 16px; color: #111827; }
+    .demo-link .txt span { font-size: 13px; }
+    .demo-link .arrow { font-size: 22px; color: #0d9488; font-weight: 700; }
   </style>
 </head>
 <body>
@@ -49,6 +55,11 @@
     <span class="badge">Local-First</span>
     <h1>Asystent Praktyki Medycznej (APM)</h1>
     <p>Organizer pracy medyka — przydatny niezależnie od formy zatrudnienia: grafik dyżurów, urlopy, karta rozliczenia godzin, baza leków i kalkulatory medyczne. Dla prowadzących własną działalność dodatkowo: faktury za godziny i usługi oraz eksport do KSeF 2.0. Dane domyślnie zostają na Twoim urządzeniu.</p>
+
+    <a class="demo-link" href="prezentacja.html">
+      <span class="txt"><strong>👀 Zobacz, jak to działa krok po kroku</strong><span>Pełna prezentacja na zrzutach ekranu z aplikacji</span></span>
+      <span class="arrow">→</span>
+    </a>
 
     <h2>Dla kogo?</h2>
     <ul class="audience">
@@ -91,7 +102,7 @@
     <p>Aplikacja działa w modelu <strong>Local-First</strong> — Twoje dane (grafik, faktury, dane firmy) domyślnie zostają na Twoim urządzeniu, opuszczając je wyłącznie w ramach funkcji sieciowych świadomie uruchamianych przez Ciebie. Żadna telemetria, żadne serwery reklamowe czy analityczne. Szczegóły w <a href="privacy.html">Polityce Prywatności</a>.</p>
 
     <h2>Zrzuty ekranu</h2>
-    <p class="roadmap-note">Aplikacja pozwala personalizować kolorystykę — kilka motywów na przykładzie poniżej. Pełną, krok-po-kroku prezentację działania znajdziesz na <a href="prezentacja.html"><strong>osobnej stronie →</strong></a>.</p>
+    <p class="roadmap-note">Aplikacja pozwala personalizować kolorystykę — kilka motywów na przykładzie poniżej.</p>
     <div class="shots">
       <a href="screenshots/start.png" target="_blank" rel="noopener"><img src="screenshots/start.png" alt="Ekran Start - dzisiejszy dyżur, podsumowanie miesiąca"></a>
       <a href="screenshots/grafik.png" target="_blank" rel="noopener"><img src="screenshots/grafik.png" alt="Ekran Grafik - kalendarz dyżurów"></a>
