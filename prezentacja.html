@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jak działa APM - Asystent Praktyki Medycznej</title>
+  <script data-goatcounter="https://budoka2024.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <style>
+    :root {
+      --teal: #0d9488;
+      --teal-dark: #0f766e;
+      --teal-tint: #ccfbf1;
+      --teal-tint-2: #f0fdfa;
+      --ink: #111827;
+      --muted: #6b7280;
+      --bg: #fafafa;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      margin: 0;
+      background: var(--bg);
+    }
+    a { color: var(--teal); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    .narrow { max-width: 800px; margin: 0 auto; }
+
+    /* Top nav */
+    .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; max-width: 1120px; margin: 0 auto; }
+    .top-nav .brand { font-weight: 800; color: var(--ink); text-decoration: none; font-size: 15px; }
+    .top-nav .back { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 600; }
+    .top-nav .back:hover { color: var(--teal); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 28px 24px 8px; }
+    .badge { display: inline-block; background: var(--teal-tint); color: var(--teal-dark); padding: 4px 14px; border-radius: 20px; font-weight: bold; font-size: 12px; letter-spacing: 0.02em; }
+    .hero h1 { font-size: 34px; color: var(--ink); margin: 16px 0 10px; }
+    .hero p { font-size: 16px; color: var(--muted); max-width: 620px; margin: 0 auto; }
+
+    /* Phone frame */
+    .phone {
+      display: block;
+      height: 560px;
+      width: auto;
+      max-width: 100%;
+      border-radius: 22px;
+      border: 6px solid #1f2937;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.16);
+      background: #1f2937;
+    }
+    .phone-small { height: 420px; }
+
+    /* Step rows */
+    .step { display: flex; align-items: center; gap: 48px; padding: 56px 0; }
+    .step.reverse { flex-direction: row-reverse; }
+    .step-media { flex: 0 0 auto; text-align: center; }
+    .step-text { flex: 1 1 320px; min-width: 260px; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--teal); color: #fff; font-weight: 800; font-size: 14px; margin-bottom: 14px; }
+    .step-text h3 { font-size: 22px; color: var(--ink); margin: 0 0 10px; }
+    .step-text p { color: var(--muted); font-size: 15px; margin: 0; }
+
+    .section-title { text-align: center; padding: 12px 0 8px; }
+    .section-title h2 { font-size: 26px; color: var(--ink); margin: 0 0 8px; }
+    .section-title p { color: var(--muted); font-size: 15px; max-width: 560px; margin: 0 auto; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+
+    /* Feature grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; padding: 32px 0 8px; }
+    .feature-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+    .feature-card .shot-wrap { background: var(--teal-tint-2); display: flex; justify-content: center; padding: 20px 20px 0; }
+    .feature-card img { display: block; height: 320px; width: auto; max-width: 100%; border-radius: 12px 12px 0 0; border: 1px solid var(--border); border-bottom: none; }
+    .feature-card .body { padding: 18px 20px 22px; }
+    .feature-card h3 { font-size: 17px; color: var(--ink); margin: 0 0 8px; }
+    .feature-card p { font-size: 14px; color: var(--muted); margin: 0; }
+
+    /* CTA */
+    .cta { background: var(--teal); color: #fff; border-radius: 16px; padding: 32px; margin: 48px 0 24px; text-align: center; }
+    .cta h2 { margin: 0 0 8px; font-size: 22px; }
+    .cta p { margin: 0 0 20px; opacity: 0.92; font-size: 14px; }
+    .cta-btn { background: #fff; color: var(--teal-dark); font-weight: 700; text-decoration: none; padding: 12px 26px; border-radius: 8px; display: inline-block; }
+    .cta-btn:hover { background: var(--teal-tint-2); }
+
+    footer { text-align: center; padding: 24px; font-size: 12px; color: var(--muted); }
+    footer a { color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .step, .step.reverse { flex-direction: column; gap: 24px; padding: 36px 0; text-align: center; }
+      .step-text { min-width: 0; }
+      .phone { height: 420px; }
+      .hero h1 { font-size: 27px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    <a class="brand" href="index.html">Asystent Praktyki Medycznej</a>
+    <a class="back" href="index.html">&larr; Strona główna</a>
+  </div>
+
+  <div class="hero">
+    <span class="badge">Zobacz jak to działa</span>
+    <h1>Od pierwszego uruchomienia do rozliczonego miesiąca</h1>
+    <p>Krok po kroku pokazujemy, jak wygląda praca z APM — od dodania pierwszego dyżuru, aż po funkcje, z których korzystasz na co dzień.</p>
+  </div>
+
+  <div class="wrap">
+
+    <div class="step">
+      <div class="step-media"><img class="phone" src="screenshots/prezentacja/onboarding-1.png" alt="Ekran powitalny APM"></div>
+      <div class="step-text">
+        <span class="step-num">1</span>
+        <h3>Zaczynasz w kilka sekund</h3>
+        <p>Po pierwszym uruchomieniu krótki, czterostronicowy przewodnik pokazuje, co apka potrafi — grafik dyżurów, urlopy, faktury z KSeF i przypomnienia w jednym miejscu. Można go pominąć w każdej chwili.</p>
+      </div>
+    </div>
+
+    <div class="step reverse">
+      <div class="step-media"><img class="phone" src="screenshots/prezentacja/onboarding-4.png" alt="Ostatni ekran onboardingu - grafik i urlopy zawsze za darmo"></div>
+      <div class="step-text">
+        <span class="step-num">2</span>
+        <h3>Jasne zasady od początku</h3>
+        <p>Pełna edycja Grafiku, Podmiotów i Oddziałów (w tym Urlopów) jest darmowa na zawsze, bez karty płatniczej. Faktury, KSeF, Koszty i narzędzia medyczne odblokowuje subskrypcja Premium — zero niespodzianek.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-media"><img class="phone" src="screenshots/prezentacja/szybkie-akcje.png" alt="Panel szybkich akcji"></div>
+      <div class="step-text">
+        <span class="step-num">3</span>
+        <h3>Wszystko pod jednym przyciskiem</h3>
+        <p>Duży przycisk "+" na dole ekranu otwiera panel szybkich akcji — dodanie dyżuru, wystawienie faktury, skan kosztu z paragonu (OCR) czy rozliczenie miesiąca są zawsze o jedno stuknięcie od Ciebie.</p>
+      </div>
+    </div>
+
+    <div class="step reverse">
+      <div class="step-media"><img class="phone" src="screenshots/prezentacja/dodaj-dyzur.png" alt="Formularz dodawania dyżuru"></div>
+      <div class="step-text">
+        <span class="step-num">4</span>
+        <h3>Dyżur dzienny i nocny w jednym formularzu</h3>
+        <p>Wybierasz Podmiot, Oddział i godziny osobno dla dnia i nocy tego samego dnia — przydatne przy zmianach 24-godzinnych. Zwolnienie lekarskie (L4) zaznaczysz jednym przełącznikiem.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-media"><img class="phone" src="screenshots/prezentacja/dodaj-podmiot.png" alt="Formularz dodawania podmiotu"></div>
+      <div class="step-text">
+        <span class="step-num">5</span>
+        <h3>Nowy szpital czy przychodnia? Dwie minuty</h3>
+        <p>NIP, nazwa, adres — możesz pobrać dane automatycznie z GUS albo wpisać ręcznie. Każdy Podmiot może mieć wiele Oddziałów, jeśli pracujesz w kilku miejscach jednocześnie.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wrap narrow">
+    <hr class="divider">
+  </div>
+
+  <div class="section-title">
+    <h2>Co jeszcze potrafi aplikacja</h2>
+    <p>Poza organizacją dyżurów, APM prowadzi Cię przez finanse i codzienne narzędzia zawodowe.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+
+      <div class="feature-card">
+        <div class="shot-wrap"><img src="screenshots/prezentacja/grafik.png" alt="Kalendarz grafiku dyżurów"></div>
+        <div class="body">
+          <h3>📅 Grafik dyżurów</h3>
+          <p>Widok miesięczny z oznaczeniem dnia, nocy, urlopu, szkolenia i L4 — plus automatyczne podsumowanie godzin i wynagrodzenia.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="shot-wrap"><img src="screenshots/prezentacja/faktura.png" alt="Wystawiona faktura"></div>
+        <div class="body">
+          <h3>🧾 Faktury i KSeF</h3>
+          <p>Wystawiasz fakturę jednym kliknięciem prosto z Grafiku, z integracją Krajowego Systemu e-Faktur (KSeF 2.0).</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="shot-wrap"><img src="screenshots/prezentacja/baza-lekow.png" alt="Baza leków ChPL"></div>
+        <div class="body">
+          <h3>💊 Baza leków ChPL</h3>
+          <p>Stężenia, rozcieńczanie i przelicznik mg/ml/µg dla leków ratunkowych — pod ręką, offline, bez szukania w internecie.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="shot-wrap"><img src="screenshots/prezentacja/kalkulator-rentownosci.png" alt="Kalkulator rentowności dyżuru"></div>
+        <div class="body">
+          <h3>💰 Kalkulator rentowności</h3>
+          <p>Wpisujesz stawkę i godziny — dostajesz realny zysk netto "na rękę", po odjęciu ZUS, podatku i kosztów dojazdu.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="shot-wrap"><img src="screenshots/prezentacja/personalizacja.png" alt="Motywy sezonowe i personalizacja"></div>
+        <div class="body">
+          <h3>🎨 Personalizacja</h3>
+          <p>Kilkanaście motywów kolorystycznych, w tym sezonowe i Night Shift dla dyżurów nocnych — apka dopasowuje się do Ciebie.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="shot-wrap"><img src="screenshots/prezentacja/dostepnosc.png" alt="Ustawienia dostępności - większy tekst"></div>
+        <div class="body">
+          <h3>🔎 Dostępność</h3>
+          <p>Większy rozmiar tekstu i wysoki kontrast — bez wymogu Premium, bo czytelność to nie luksus, tylko podstawa.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wrap narrow">
+    <div class="cta">
+      <h2>Dołącz do zamkniętych testów APM</h2>
+      <p>Testuj aktualną wersję przed premierą w Google Play i pomóż nam zdecydować, co warto poprawić przed publikacją.</p>
+      <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd3QUJ7S6dkCkzoRq_zlR7jfoOA3_ZM3aQXw6Dp44d927lynw/viewform" target="_blank" rel="noopener">Zapisz się →</a>
+    </div>
+  </div>
+
+  <footer>
+    Asystent Praktyki Medycznej (APM) &middot; <a href="index.html">Strona główna</a> &middot; <a href="privacy.html">Polityka Prywatności</a> &middot; <a href="terms.html">Regulamin</a>
+  </footer>
+</body>
+</html>
