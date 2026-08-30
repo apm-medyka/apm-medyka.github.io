@@ -41,6 +41,9 @@
     .lang-switch a { color: #9ca3af; text-decoration: none; font-weight: 700; }
     .lang-switch a.active { color: #0d9488; }
     .lang-switch span { color: #e5e7eb; margin: 0 6px; }
+    .store-btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #0f766e; font-weight: 700; text-decoration: none; padding: 12px 22px; border-radius: 10px; white-space: nowrap; }
+    .store-btn:hover { background: #f0fdfa; }
+    .store-btn .icon { font-size: 20px; }
   </style>
 </head>
 <body>
@@ -62,21 +65,21 @@
 
     <div class="signup">
       <div>
-        <h2>Join the APM closed testing program</h2>
-        <p>Test the current version before its Google Play release and help us decide what's worth fixing before launch.</p>
+        <h2>APM is now live on Google Play</h2>
+        <p>Download the app and start organizing your shifts, leave and invoices today.</p>
         <p style="margin-top: 8px;">
           🇵🇱 <strong>Please note:</strong> APM is currently available in Polish only, as it is designed primarily for healthcare professionals working in Poland.
         </p>
       </div>
-      <a class="signup-btn"
-         href="https://docs.google.com/forms/d/e/1FAIpQLSd3QUJ7S6dkCkzoRq_zlR7jfoOA3_ZM3aQXw6Dp44d927lynw/viewform"
+      <a class="store-btn"
+         href="https://play.google.com/store/apps/details?id=com.gallewicz.asystent_medyka"
          target="_blank"
-         rel="noopener">Join the Beta →</a>
+         rel="noopener"><span class="icon">▶</span> Get it on Google Play</a>
     </div>
 
     <h2>Project status</h2>
     <p class="roadmap-note">
-      APM is still under development. Below is an honest overview of what is already working and what is still ahead.
+      APM is actively developed. Below is an honest overview of what is already working and what is still ahead.
     </p>
 
     <div class="roadmap-group">
@@ -85,15 +88,15 @@
         <li><span class="icon">✓</span> Core modules</li>
         <li><span class="icon">✓</span> KSeF integration (test environment)</li>
         <li><span class="icon">✓</span> Google Drive integration</li>
-        <li><span class="icon">✓</span> Technical readiness for Google Play (app signing and policy compliance)</li>
-        <li><span class="icon">✓</span> Closed beta testing — in progress</li>
+        <li><span class="icon">✓</span> Closed beta testing</li>
+        <li><span class="icon">✓</span> Production release on Google Play</li>
       </ul>
     </div>
 
     <div class="roadmap-group">
       <ul class="roadmap pending">
-        <li><span class="icon">⏳</span> Fixes based on tester feedback</li>
-        <li><span class="icon">⏳</span> Production release on Google Play</li>
+        <li><span class="icon">⏳</span> Further fixes based on user feedback</li>
+        <li><span class="icon">⏳</span> English version</li>
       </ul>
     </div>
 
