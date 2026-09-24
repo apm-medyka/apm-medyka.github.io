@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gdzie są Twoje dane - Asystent Praktyki Medycznej</title>
+  <meta name="description" content="Co dokładnie znaczy, że dane w Asystencie Praktyki Medycznej zostają na Twoim urządzeniu: gdzie są zapisane, kiedy cokolwiek opuszcza telefon, kto to widzi i jak to sprawdzić.">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #222; max-width: 800px; margin: 0 auto; padding: 24px; background: #fafafa; }
+    .card { background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
+    h1 { color: #0d9488; font-size: 26px; margin-top: 0; }
+    h2 { color: #111827; font-size: 19px; margin-top: 30px; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+    .badge { display: inline-block; background: #ccfbf1; color: #0f766e; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 12px; }
+    .promise { background: #f0fdfa; border: 2px solid #5eead4; border-radius: 14px; padding: 20px 22px; margin: 18px 0 8px; font-size: 18px; font-weight: 700; line-height: 1.45; color: #134e4a; }
+    .promise small { display: block; font-weight: 400; font-size: 14px; margin-top: 8px; color: #115e59; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+    th, td { border: 1px solid #e5e7eb; padding: 9px 10px; vertical-align: top; text-align: left; }
+    th { background: #f9fafb; }
+    .note { background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 14px 16px; font-size: 14px; margin-top: 14px; }
+    a { color: #0d9488; }
+    .back { display: inline-block; margin-top: 24px; font-size: 14px; }
+    .muted { color: #6b7280; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">Prywatność, bez niedopowiedzeń</span>
+    <h1>Gdzie są Twoje dane?</h1>
+
+    <div class="promise">
+      Twoje dane (dyżury, faktury, dokumenty, dane firmy) zostają na Twoim urządzeniu.
+      Autor aplikacji nie ma serwera, nie zakłada Ci konta i nie ma żadnego dostępu do tego, co wpisujesz.
+      <small>Ta strona wyjaśnia to dokładnie: co znaczy „na Twoim urządzeniu", w jakich sytuacjach cokolwiek z telefonu wychodzi, do kogo trafia i jak możesz to sprawdzić sam.</small>
+    </div>
+
+    <h2>1. Co znaczy „na Twoim urządzeniu"</h2>
+    <ul>
+      <li><strong>Zapis w pamięci aplikacji.</strong> Wszystko, co wpisujesz (grafik, profil, NIP, faktury, koszty, dokumenty), aplikacja zapisuje w prywatnym obszarze pamięci swojego telefonu. Inne aplikacje nie mają do niego dostępu.</li>
+      <li><strong>Plik z danymi jest szyfrowany</strong> (AES-256-GCM), a klucz trzyma systemowy magazyn kluczy Androida (Keystore) - nie leży obok danych.</li>
+      <li><strong>Token KSeF</strong> (jeśli go wpiszesz) jest przechowywany w osobnym, zaszyfrowanym magazynie systemu, a nie w zwykłym pliku i nie w kopiach zapasowych.</li>
+      <li><strong>PIN nie jest zapisywany</strong> - aplikacja trzyma wyłącznie jego nieodwracalny skrót (PBKDF2 z losową solą). Odcisk palca i twarz obsługuje sam system Android; aplikacja ich nie widzi.</li>
+      <li><strong>Automatyczna kopia Androida jest wyłączona</strong> (<code>allowBackup=false</code>), więc dane nie wędrują same do chmury Google razem z kopią telefonu.</li>
+      <li><strong>Podstawowe funkcje działają bez internetu</strong> - grafik, faktury i podgląd PDF, dokumenty, przypomnienia, kalkulatory. Możesz to sprawdzić w trybie samolotowym.</li>
+    </ul>
+
+    <h2>2. Kiedy cokolwiek opuszcza telefon - pełna lista</h2>
+    <p>Aplikacja łączy się z internetem <strong>tylko w tych sytuacjach</strong>, i to wyłącznie po Twoim działaniu w aplikacji (dotknięciu przycisku). Nic nie dzieje się w tle bez Twojej wiedzy.</p>
+    <table>
+      <tr><th>Sytuacja</th><th>Co wychodzi z telefonu</th><th>Dokąd</th><th>Czy widzi to autor aplikacji</th></tr>
+      <tr><td>„Pobierz dane po NIP-ie" (kreator, profil, podmioty)</td><td>Sam numer NIP</td><td>Publiczna baza Ministerstwa Finansów (Biała Lista podatników VAT)</td><td>Nie</td></tr>
+      <tr><td>Wysyłka faktury do KSeF (Premium)</td><td>Faktura w formacie wymaganym przez MF, szyfrowana</td><td>Bramka KSeF Ministerstwa Finansów</td><td>Nie</td></tr>
+      <tr><td>Aktualizacja stawek ZUS</td><td>Nic z Twoich danych - aplikacja tylko pobiera publiczne tabele</td><td>Publiczne źródła (ZUS, dane.gov.pl)</td><td>Nie</td></tr>
+      <tr><td>Kopia zapasowa na Dysku Google (opcjonalna, Premium)</td><td>Plik kopii Twoich danych</td><td>Twój własny, ukryty obszar aplikacji na <em>Twoim</em> Dysku Google</td><td>Nie - to Twoje konto Google</td></tr>
+      <tr><td>Formularz „Opinia i sugestie"</td><td>Treść wiadomości, którą sam napiszesz, i opcjonalnie Twój e-mail</td><td>Formularz Google obsługiwany przez autora</td><td>Tak - tylko to, co sam wyślesz</td></tr>
+      <tr><td>Zakup i odnawianie Premium</td><td>Obsługuje wyłącznie Google Play; aplikacja nie widzi danych karty</td><td>Google Play</td><td>Nie widzi Twoich danych płatniczych; Google udostępnia autorowi standardowe rozliczenia sprzedaży</td></tr>
+    </table>
+
+    <h2>3. Czego autor aplikacji NIE robi</h2>
+    <ul>
+      <li>Nie prowadzi żadnego serwera z danymi użytkowników i nie ma kont użytkowników.</li>
+      <li>Nie stosuje reklam, śledzenia, analityki ani żadnej telemetrii użycia aplikacji.</li>
+      <li>Nie ma dostępu do Twojego grafiku, faktur, dokumentów, NIP-ów, kosztów ani kopii zapasowych.</li>
+      <li>Nie sprzedaje i nie udostępnia niczyich danych - nie ma czego, bo ich nie posiada.</li>
+    </ul>
+
+    <h2>4. Rzeczy techniczne po stronie Google - dla pełnej jasności</h2>
+    <p>Aplikacja działa na systemie Android i korzysta z usług Google Play, więc poza kontrolą autora zdarzają się dwie rzeczy, które Google opisuje w formularzu „Bezpieczeństwo danych" na stronie aplikacji w Google Play:</p>
+    <ul>
+      <li><strong>Rozpoznawanie tekstu ze zdjęcia</strong> (skan paragonu lub dokumentu) odbywa się na urządzeniu. Sama biblioteka Google (ML Kit) może jednak wysyłać do Google techniczne informacje o działaniu i identyfikator instalacji. Nie zawierają one treści Twoich dokumentów.</li>
+      <li><strong>Statystyki awarii</strong>, jeśli włączyłeś w systemie Android udostępnianie danych diagnostycznych, trafiają do Google Play Console jako dane zbiorcze o stabilności aplikacji.</li>
+    </ul>
+    <div class="note">To nie są dane, które autor odbiera od Ciebie lub które pozwalają zobaczyć, co wpisujesz w aplikacji. Wspominamy o nich, bo prawda ma być pełna, a nie tylko wygodna.</div>
+
+    <h2>5. Druga strona prywatności - co to dla Ciebie znaczy</h2>
+    <ul>
+      <li><strong>Autor nie odzyska Twoich danych.</strong> Jeśli zgubisz telefon albo odinstalujesz aplikację bez kopii, dane przepadną bezpowrotnie - autor nie ma ich gdzie znaleźć. Dlatego warto robić kopię zapasową (eksport do pliku albo na Twój Dysk Google).</li>
+      <li><strong>Możesz w każdej chwili wyeksportować swoje dane</strong> do pliku i przenieść je na inny telefon.</li>
+      <li><strong>Usunięcie wszystkiego:</strong> odinstaluj aplikację albo w ustawieniach Androida wybierz Aplikacje → Asystent Praktyki Medycznej → Pamięć → Wyczyść dane. Kopię na Dysku Google usuniesz w ustawieniach konta Google (Zarządzaj dostępem do danych aplikacji).</li>
+    </ul>
+
+    <h2>6. Jak to sprawdzić samemu</h2>
+    <ul>
+      <li>Włącz tryb samolotowy i użyj aplikacji - grafik, faktury, dokumenty i kalkulatory działają.</li>
+      <li>Zobacz uprawnienia aplikacji w ustawieniach Androida: internet, aparat (skan dokumentów), powiadomienia i uruchamianie po restarcie telefonu (przypomnienia) oraz odcisk palca (blokada). Nie ma dostępu do kontaktów, lokalizacji ani plików innych aplikacji.</li>
+      <li>Przeczytaj formularz „Bezpieczeństwo danych" na stronie aplikacji w Google Play.</li>
+      <li>Pełny opis w <a href="privacy.html">Polityce Prywatności</a>.</li>
+    </ul>
+
+    <p class="muted">Stan na 24 września 2026 r. Pytania i uwagi: <a href="mailto:apm.support.polska@gmail.com">apm.support.polska@gmail.com</a></p>
+    <a class="back" href="index.html">&larr; Powrót do strony głównej</a>
+  </div>
+</body>
+</html>
